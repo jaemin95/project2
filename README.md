@@ -4,6 +4,6 @@ Project 2
 
 Group members:
 
-Ada Lovelace adalovelace@csu.fullerton.edu
+Alex Chuoy alexchuoy@csu.fullerton.edu
 
-Charles Babbage charlesbab@csu.fullerton.edu
+Jaemin Jin jaemin_95@csu.fullerton.edu
