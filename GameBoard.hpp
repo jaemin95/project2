@@ -19,10 +19,58 @@ public:
    
    // Build the gameboard
    // TO DO: implement this function
-   void buildBoard();
+   void buildBoard() {
+      for (int position = 0; position < BOARD_SIZE; position++)
+        {
+            // Ladders
+            if (position == Ladders.at(0))
+                position = 38;
+            if (position == Ladders.at(1))
+                position = 14;
+            if (position == Ladders.at(2))
+                position = 31;
+            if (position == Ladders.at(3))
+                position = 42;
+            if (position == Ladders.at(4))
+                position = 84;
+            if (position == Ladders.at(5))
+                position = 44;
+            if (position == Ladders.at(6))
+                position = 67;
+            if (position == Ladders.at(7))
+                position = 91;
+            if (position == Ladders.at(8))
+                position = 100;
+            
+            // Chutes
+            if (position == Chutes.at(0))
+                position = 6;
+            if (position == Chutes.at(1))
+                position = 26;
+            if (position == Chutes.at(2))
+                position = 11;
+            if (position == Chutes.at(3))
+                position = 53;
+            if (position == Chutes.at(4))
+                position = 19;
+            if (position == Chutes.at(5))
+                position = 60;
+            if (position == Chutes.at(6))
+                position = 24;
+            if (position == Chutes.at(7))
+                position = 73;
+            if (position == Chutes.at(8))
+                position = 75;
+            if (position == Chutes.at(9))
+                position = 78;
+        }
+    }
    
    GameBoard() {
       // TODO: implement this function properly
+      position = 0;
+      Chutes = NULL;
+      Ladders = NULL;
       throw std::logic_error("not implemented yet");
    }
    
@@ -35,10 +83,16 @@ public:
          throw range_error("index out of bounds");
       }
       // TODO: implement this function properly
+      return Chutes[position] || Ladders[position];
       throw std::logic_error("not implemented yet");
    }
    
 private:
    // TO DO: add storage for squares including square of chutes and ladders
    // Requirement: use ExtendableVector to store the square
+   
+   // Used these variables as wrappers
+    ExtendableVector<int> Chutes;
+    ExtendableVector<int> Ladders;
+    int position;
 };
