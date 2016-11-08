@@ -15,6 +15,10 @@ using namespace std;
 // constructor with the default value of a minimum players
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
    // TODO: implement this function properly
+   // Referenced from Alex's code
+   players.enqueue(Player("Alex Chuoy"));
+   players.enqueue(Player("Jaemin Jin"));
+   
    throw std::logic_error("not implemented yet");
 }
 
@@ -22,6 +26,11 @@ ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
 // destructor - dequeue players from the queue
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
    // TODO: implement this function properly
+   // Referenced from Alex's code
+   while (!players.empty()) {
+       players.dequeue();
+   }
+   
    throw std::logic_error("not implemented yet");
 }
 
@@ -31,6 +40,14 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 //        Place all players at the figurative square zero
 void ChutesAndLaddersGame::resetGame() {
    // TODO: implement this function properly
+   // Referenced from Alex's code
+   while (!players.empty()) {
+       players.dequeue();
+   }
+   players.enqueue(Player("Alex Chuoy"));
+   players.enqueue(Player("Jaemin Jin"));
+   winner = "no winner";
+   
    throw std::logic_error("not implemented yet");
 }
 
@@ -46,6 +63,18 @@ void ChutesAndLaddersGame::resetGame() {
 //    - playGame returns after congratulating and printing the winner's name
 void ChutesAndLaddersGame::playGame() {
    // TODO: implement this function properly
-   throw std::logic_error("not implemented yet");
+   // Referenced from Alex's code
+   GameBoard board;
+   do {
+       Player temp = players.front();
+       players.dequeue();
+       temp.setPostion(board.checkChutesLadders(temp.rollDieAndMove()));
+       if (temp.getPostion() == WINNING_POSITION) {
+           winner = temp.getName();
+       }
+       players.enqueue(temp);
+   } while (winner == "no winner");
+   cout << winner << " has won the game! Congratulation!\n";
    
+   throw std::logic_error("not implemented yet");
 }
