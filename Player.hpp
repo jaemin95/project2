@@ -24,6 +24,7 @@ public:
       // TODO: implement this function properly
       name = "Jaemin";
       position = 0;
+      
       throw std::logic_error("not implemented yet");
    }
    
@@ -35,14 +36,14 @@ public:
       playerName = p.playerName;
       position = p.position;
       die = p.die;
+      
       throw std::logic_error("not implemented yet");
    }
    
    // assignment constructor
    // Player should make player's own copy of the die
    // TO DO: implement Player's assignment constructor
-   Player& operator=(const Player& p) {
-   }
+   Player& operator=(const Player& p);
    
    // destructor
    ~Player() { }
