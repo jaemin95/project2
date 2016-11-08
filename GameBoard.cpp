@@ -13,5 +13,11 @@
 // TO DO: implement this method
 void GameBoard::buildBoard() {
    // TODO: implement this function properly
+   // Referenced from Alex Chouy's code, not mine
+    
+    for (int i = 0; i <= BOARD_SIZE; i++) {
+        squares.insert(i,checkChutesLadders(i));
+    }
+    
    throw std::logic_error("not implemented yet");
 }
